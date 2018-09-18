@@ -28,7 +28,7 @@ def user_config(config_complete_path, auth):
     try:
         auth_url = auth.get_authorization_url()
     except tweepy.TweepError:
-        error('Failed to get request token.')
+        error(config_complete_path, 'Failed to get request token.')
 
     print('Access this link to authorize usage of your Twitter account: ' + bold(lightpurple(auth_url)) + ' (URL automatically copied to clipboard)')
     pyperclip.copy(auth_url)
@@ -37,7 +37,7 @@ def user_config(config_complete_path, auth):
     try:
         access_token, access_secret = auth.get_access_token(verifier)
     except tweepy.TweepError:
-        error('Failed to get access token.')
+        error(config_complete_path, 'Failed to get access token.')
 
     config[username] = {'AccessToken':access_token, 'AccessSecret':access_secret}
     with open(config_complete_path, 'w') as configfile:

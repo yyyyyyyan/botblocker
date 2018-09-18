@@ -5,6 +5,7 @@ from datetime import datetime
 from collections import namedtuple
 from math import floor
 from botometer import Botometer
+from .settings import config_complete_path
 from .errors import error
 
 def get_followers(api, username):
@@ -13,7 +14,7 @@ def get_followers(api, username):
         for ids in tweepy.Cursor(api.followers_ids, screen_name=username).pages():
             followers.extend(ids)
     except tweepy.TweepError:
-        error('Failed to retrieve your Twitter followers.')
+        error(config_complete_path, 'Failed to retrieve your Twitter followers.')
     return followers
 
 def filter_followers(location, followers):
@@ -30,7 +31,7 @@ def create_botometer(mashape_key, twitter_api_auth):
     try:
         bom = Botometer(wait_on_rate_limit=True, mashape_key=mashape_key, **twitter_api_auth)
     except tweepy.TweepError:
-        error('Failed to connect to Botometer API')
+        error(config_complete_path, 'Failed to connect to Botometer API')
     return bom
 
 def calculate_bot_score(api, id_number):

@@ -5,14 +5,14 @@ with open('README.rst') as file:
 
 setup(
 	name='botblocker',
-	version='1.1.0',
+	version='1.1.1',
 	author='Yan Orestes',
 	author_email='yan.orestes@alura.com.br',
 	packages=['botblocker'],
 	description='Python script to identify and block your bot followers on Twitter',
 	long_description=long_description,
 	url='https://github.com/yanorestes/botblocker',
-	download_url='https://github.com/yanorestes/botblocker/archive/1.1.0.zip',
+	download_url='https://github.com/yanorestes/botblocker/archive/1.1.1.zip',
 	license='MIT',
 	keywords='twitter bot blocker tweepy botometer',
 	classifiers=[

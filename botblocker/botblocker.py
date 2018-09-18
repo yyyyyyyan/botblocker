@@ -16,6 +16,16 @@ def get_followers(api, username):
         error('Failed to retrieve your Twitter followers.')
     return followers
 
+def filter_followers(location, followers):
+    try:
+        with open(location, 'rb') as allowlist:
+            allowed_ids = pickle.load(allowlist)
+    except (FileNotFoundError, EOFError, pickle.UnpicklingError):
+        allowed_ids = []
+
+    filtered_followers = [f for f in followers if f not in allowed_ids]
+    return filtered_followers
+
 def create_botometer(mashape_key, twitter_api_auth):
     try:
         bom = Botometer(wait_on_rate_limit=True, mashape_key=mashape_key, **twitter_api_auth)
@@ -40,6 +50,7 @@ def calculate_bot_score(api, id_number):
 
 Block = namedtuple('Block', ['block_now', 'soft_block', 'report_spam'])
 def identify_bots(api, bom, followers, level, block=Block(False, False, False)):
+    print(lightcyan('\nAnalizing followers...'))
     block_levels = {3:2.5, 2:3, 1:4}
     colors = {0:lightblue, 1:lightgreen, 2:yellow, 3:orange, 4:red, 5:red}
     bots = []

@@ -9,11 +9,14 @@ config_complete_path = pathjoin(config_path, config_file)
 
 def initial_config(config_complete_path):
     config = ConfigParser() 
-    consumer_key = input('Paste your Twitter API Consumer Key: ')
-    consumer_secret = input('Paste your Twitter API Consumer Secret Key: ')
-    mashape_key = input('Paste your Mashape API Key: ')
+    consumer_key = input('Paste your ' + blue('Twitter API Consumer Key') + ': ')
+    consumer_secret = input('Paste your ' + blue('Twitter API Consumer Secret Key') + ': ')
+    mashape_key = input('Paste your ' + blue('Mashape API Key' + ': '))
     config['API'] = {'ConsumerKey':consumer_key, 'ConsumerSecret':consumer_secret, 'MashapeKey':mashape_key}
-    
+
+    allowlist_path = pathjoin(input('Type in the full path of the folder you want to save your allowlist: '), 'AllowList.pickle')
+    config['Global'] = {'AllowListPath':allowlist_path}
+
     with open(config_complete_path, 'w') as configfile:
         config.write(configfile)
 
@@ -36,9 +39,7 @@ def user_config(config_complete_path, auth):
     except tweepy.TweepError:
         error('Failed to get access token.')
 
-    allowlist_path = pathjoin(input('Type in the full path of the folder you want to save your allowlist: '), 'AllowList.pickle')
-
-    config[username] = {'AccessToken':access_token, 'AccessSecret':access_secret, 'AllowListPath':allowlist_path}
+    config[username] = {'AccessToken':access_token, 'AccessSecret':access_secret}
     with open(config_complete_path, 'w') as configfile:
         config.write(configfile)
     return access_token, access_secret

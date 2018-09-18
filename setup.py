@@ -5,7 +5,7 @@ with open('README.rst') as file:
 
 setup(
 	name='botblocker',
-	version='1.0.0',
+	version='1.0.1',
 	author='Yan Orestes',
 	author_email='yan.orestes@alura.com.br',
 	packages=['botblocker'],

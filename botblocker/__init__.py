@@ -17,7 +17,7 @@ parser.add_argument('--softblock', action='store_true', help='Do soft block (blo
 parser.add_argument('-r', '--report', action='store_true', help='Report users identified as bots to Twitter')
 parser.add_argument('-l', '--level', action='store', type=int, choices=range(1,4), default=2, help='Level of rigorosity to use to identify bots (2 is recommended)')
 parser.add_argument('-u', '--user', action='store', required=True, help='The Twitter username you want to run botblocker for')
-parser.add_argument('-v', '--version', action='version', help='Version', version='1.0.3')
+parser.add_argument('-v', '--version', action='version', help='Version', version='1.1.0')
 args = parser.parse_args()
 
 def check_settings():

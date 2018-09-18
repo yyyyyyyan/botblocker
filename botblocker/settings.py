@@ -3,6 +3,7 @@ import pyperclip
 from os.path import expanduser, join as pathjoin
 from configparser import ConfigParser
 from huepy import *
+from errors import error
 
 config_path = expanduser('~')
 config_file = '.botblocker'

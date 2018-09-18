@@ -123,7 +123,7 @@ Using
 Now it’s time to finally run botblocker! Botblocker you’ll go through
 all of your followers and calculate a “bot score” of them. The score
 goes from 0 to 5. The higher the score, the more likely is the chance
-the profile is a bot.
+the profile is a bot. The default behaviour is to automatically block every profile identified as a bot.
 
 If you installed the package using pip, you can simply run botblocker in
 the command line:
@@ -137,7 +137,7 @@ These are the parameters you can use:
 -  ``-h`` or ``--help`` - Shows a help message and exit
 -  ``-c`` or ``--config`` - (Re)configure usage settings. At least once,
    you’ll have to do this.
--  ``--noblock`` - Don’t block anyone automatically
+-  ``--noblock`` - Don’t block anyone automatically. This is not recommended, especially for profiles with lots of followers, as you may lose all the running progress if you exit early.
 -  ``--saveallowlist`` - Save users identified as non-bots to an
    allowlist. Recommended.
 -  ``--softblock`` - Do soft block (block and unblock right after)

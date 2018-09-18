@@ -97,7 +97,7 @@ Com suas chaves de API do Twitter em mãos, você só vai precisar pegar sua cha
 Usando
 ------
 
-Agora é hora de finalmente rodar o botblocker! O botblocker irá passar por todos os seus seguidores calculando uma "pontuação de bot" para cada um. A pontuação vai de 0 a 5. Quanto mais alto a pontuação, mais chance há de que esse perfil seja de fato um bot.
+Agora é hora de finalmente rodar o botblocker! O botblocker irá passar por todos os seus seguidores calculando uma "pontuação de bot" para cada um. A pontuação vai de 0 a 5. Quanto mais alto a pontuação, mais chance há de que esse perfil seja de fato um bot. Por padrão, o botblocker vai bloquear automaticamente perfis detectados como bots.
 
 Se você instalou o pacote usando o pip (recomendado!), você pode simplesmente rodar o botblocker pela linha de comando:
 
@@ -109,7 +109,7 @@ Esses são os parâmetros que você pode usar:
 
 -  ``-h`` or ``--help`` - Mostra uma mensagem de ajuda e fecha
 -  ``-c`` or ``--config`` - (Re)configura as configurações de uso. Pelo menos uma vez você terá que fazer isso.
--  ``--noblock`` - Não bloqueia ninguém automaticamente
+-  ``--noblock`` - Não bloqueia ninguém automaticamente. Não recomendado, especialmente para perfis com muitos seguidores, já que você pode acabar perdendo todo o progresso do programa se fechar antes de finalizar.
 -  ``--saveallowlist`` - Salva os usuários identificados como não-bots em uma allowlist. **Recomendado** (para acelerar o processo nos próximos usos).
 -  ``--softblock`` - Aplica um soft block (bloqueia e desbloqueia o perfil logo em seguida)
 -  ``-r`` or ``--report`` - Denuncia os perfis identificados como bots para o Twitter

@@ -1,3 +1,4 @@
+import tweepy
 import pyperclip
 from os.path import expanduser, join as pathjoin
 from configparser import ConfigParser

@@ -17,7 +17,7 @@ parser.add_argument('--softblock', action='store_true', help='Do soft block (blo
 parser.add_argument('-r', '--report', action='store_true', help='Report users identified as bots to Twitter')
 parser.add_argument('-l', '--level', action='store', type=int, choices=range(1,4), default=2, help='Level of rigorosity to use to identify bots (2 is recommended)')
 parser.add_argument('-u', '--user', action='store', required=True, help='The Twitter username you want to run botblocker for')
-parser.add_argument('-v', '--version', action='version', help='Version', version='1.0.1')
+parser.add_argument('-v', '--version', action='version', help='Version', version='1.0.2')
 args = parser.parse_args()
 
 def check_settings():
@@ -27,7 +27,7 @@ def check_settings():
         print('My last run exited with an error. Do you wish to reconfigure API settings?')
         if confirm():
             initial_config(config_complete_path)
-        clear_errors()
+        clear_errors(config_complete_path)
     if 'API' not in config:
         print('It seems this is the first time you\'re running botblocker! First of all, let\'s set things up.')
         initial_config(config_complete_path)

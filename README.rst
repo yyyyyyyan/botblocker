@@ -18,7 +18,7 @@ Installing
 
 ::
 
-   sudo pip install git+https://github.com/tweepy/tweepy
+   sudo pip install https://github.com/tweepy/tweepy/archive/master.zip
 
 Now, no matter what Python version you're using (if it fits the requirement), the easiest way is installing using pip:
 

@@ -3,6 +3,8 @@ botblocker
 
 Programa em Python para identificar e bloquear seus seguidores bots no Twitter
 
+Requisitos: 3.4 <= Python <= 3.7
+
 Começando
 ---------
 
@@ -11,7 +13,13 @@ Essas instruções vão te conseguir uma cópia do projeto rodando na sua máqui
 Instalando
 ~~~~~~~~~~
 
-A maneira mais fácil de instalar é usando o pip:
+**Apenas se você estiver usando o Python >= 3.7, você vai ter de rodar esse comando antes:**
+
+::
+
+   sudo pip install git+https://github.com/tweepy/tweepy
+
+Agora, independente da versão do Python (contanto que bata com os requisitos), a maneira mais fácil de instalar é usando o pip:
 
 ::
 

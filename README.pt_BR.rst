@@ -55,7 +55,7 @@ Já que eu estou disponibilizando o código completo desse projeto, eu não poss
 
 ::
 
-   The project I'm building aims to identify and block follower bots. It is based on programming language Python, using Tweepy to connect to Twitter API and Botometer to identify bots. The project gives the user mutiple options on identifying and blocking the bots, resulting in a clean and simple usage.
+   The project I'm building aims to identify and block follower bots. It is based on programming language Python, using Tweepy to connect to Twitter API and Botometer to identify bots. The project gives the user mutiple options on identifying and blocking the bots, resulting in a clean and simple usage. Botometer analizes each profile basing itself on the tweets and the specs of the profile, to, then, calculate a result (a score from 0 to 5; the higher, the more likely it is that the profile is indeed a bot). None of the results are shared with anyone or kept with us.
 
 -  Marque a opção ``No`` e clique em ``Continue``
 -  Passe pelos termos de serviço e marque a opção "read and agree"

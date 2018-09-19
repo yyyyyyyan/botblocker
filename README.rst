@@ -3,6 +3,8 @@ botblocker
 
 Python program to identify and block your bot followers on Twitter
 
+Requires 3.4 <= Python < 3.7 (**3.7 As of right now, version 3.7 is not supported due to a inconsistency in tweepy! I will work on that soon**)
+
 Getting Started
 ---------------
 
@@ -23,6 +25,8 @@ You can also clone this project using git:
 ::
 
    git clone https://github.com/yanorestes/botblocker.git
+   cd botblocker
+   python setup.py install
 
 Preparation
 -----------
@@ -154,7 +158,7 @@ You can also run the script directly by ``botblocker.py``:
 
 ::
 
-   python3 -W ignore -m botblocker [-h] [-c] [--noblock] [--saveallowlist] [--softblock] [--report] [-l {1,2,3}] -u USER [-v]
+   python -W ignore -m botblocker [-h] [-c] [--noblock] [--saveallowlist] [--softblock] [--report] [-l {1,2,3}] -u USER [-v]
 
 Contributing
 ------------

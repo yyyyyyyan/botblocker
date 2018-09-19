@@ -22,6 +22,8 @@ Você também pode clonar esse repositório usando o git:
 ::
 
    git clone https://github.com/yanorestes/botblocker.git
+   cd botblocker
+   python setup.py install
 
 Preparação
 ----------
@@ -121,7 +123,7 @@ Você também pode rodar o programa direto pelo ``botblocker.py``:
 
 ::
 
-   python3 -W ignore -m botblocker [-h] [-c] [--noblock] [--saveallowlist] [--softblock] [--report] [-l {1,2,3}] -u USER [-v]
+   python -W ignore -m botblocker [-h] [-c] [--noblock] [--saveallowlist] [--softblock] [--report] [-l {1,2,3}] -u USER [-v]
 
 Contribuindo
 ------------

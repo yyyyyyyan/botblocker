@@ -2,6 +2,7 @@ import argparse
 import tweepy
 from huepy import bad, good
 from os.path import join as pathjoin
+from platform import system
 from configparser import ConfigParser
 from .settings import config_path, config_complete_path
 from .settings import initial_config, user_config, confirm
@@ -17,8 +18,12 @@ parser.add_argument('--softblock', action='store_true', help='Do soft block (blo
 parser.add_argument('-r', '--report', action='store_true', help='Report users identified as bots to Twitter')
 parser.add_argument('-l', '--level', action='store', type=int, choices=range(1,4), default=2, help='Level of rigorosity to use to identify bots (2 is recommended)')
 parser.add_argument('-u', '--user', action='store', required=True, help='The Twitter username you want to run botblocker for')
-parser.add_argument('-v', '--version', action='version', help='Version', version='1.1.1')
+parser.add_argument('-v', '--version', action='version', help='Version', version='1.1.2')
 args = parser.parse_args()
+
+if system() == 'Windows':
+    import colorama
+    colorama.init()
 
 def check_settings():
     config = ConfigParser()

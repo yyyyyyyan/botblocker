@@ -1,18 +1,18 @@
 from setuptools import setup
 
-with open('README.rst') as file:
+with open('README.rst', encoding='utf8') as file:
 	long_description = file.read()
 
 setup(
 	name='botblocker',
-	version='1.1.1',
+	version='1.1.2',
 	author='Yan Orestes',
 	author_email='yan.orestes@alura.com.br',
 	packages=['botblocker'],
 	description='Python script to identify and block your bot followers on Twitter',
 	long_description=long_description,
 	url='https://github.com/yanorestes/botblocker',
-	download_url='https://github.com/yanorestes/botblocker/archive/1.1.1.zip',
+	download_url='https://github.com/yanorestes/botblocker/archive/1.1.2.zip',
 	license='MIT',
 	keywords='twitter bot blocker tweepy botometer',
 	classifiers=[
@@ -35,9 +35,12 @@ setup(
 	entry_points={
 		'console_scripts':['botblocker=botblocker.__init__:main']
 	},
+	dependency_links=['https://github.com/tweepy/tweepy/archive/master.zip#egg=tweepy-3.6.0'],
 	install_requires=[
-          'tweepy',
+          'tweepy==3.6.0',
           'botometer',
           'huepy',
+          'pyperclip',
+          'colorama;platform_system=="Windows"'
     ],
 )

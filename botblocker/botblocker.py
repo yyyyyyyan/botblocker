@@ -56,21 +56,24 @@ def identify_bots(api, bom, followers, level, block=Block(False, False, False)):
     colors = {0:lightblue, 1:lightgreen, 2:yellow, 3:orange, 4:red, 5:red}
     bots = []
     non_bots = []
-    for id_number, result in bom.check_accounts_in(followers):
-        if result.get('error'):
-            screen_name, score = calculate_bot_score(api, id_number)
-        else:
-            screen_name = result['user']['screen_name']
-            score = result['display_scores']['universal']
-        color = colors.get(floor(score), white)
-        print(color('{} - {}'.format(screen_name, score)))
-        if score >= block_levels.get(level, 3):
-            bots.append(screen_name)
-            if block.block_now:
-                block_bot(api, id_number, block.soft_block, block.report_spam)
-                print(bad('Blocked'))
-        elif score < 2.5:
-            non_bots.append(id_number)
+    try:
+        for id_number, result in bom.check_accounts_in(followers):
+            if result.get('error'):
+                screen_name, score = calculate_bot_score(api, id_number)
+            else:
+                screen_name = result['user']['screen_name']
+                score = result['display_scores']['universal']
+            color = colors.get(floor(score), white)
+            print(color('{} - {}'.format(screen_name, score)))
+            if score >= block_levels.get(level, 3):
+                bots.append(screen_name)
+                if block.block_now:
+                    block_bot(api, id_number, block.soft_block, block.report_spam)
+                    print(bad('Blocked'))
+            elif score < 2.5:
+                non_bots.append(id_number)
+    except KeyboardInterrupt:
+        print(red('\nInterrupted\n'))
     return bots, non_bots
 
 def block_bot(api, bot_id, soft_block=False, report_spam=False):

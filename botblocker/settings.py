@@ -10,10 +10,13 @@ config_file = '.botblocker'
 config_complete_path = pathjoin(config_path, config_file)
 
 def initial_config(config_complete_path):
-    config = ConfigParser() 
-    consumer_key = input('Paste your ' + blue('Twitter API Consumer Key') + ': ')
-    consumer_secret = input('Paste your ' + blue('Twitter API Consumer Secret Key') + ': ')
-    mashape_key = input('Paste your ' + blue('Mashape API Key' + ': '))
+    config = ConfigParser()
+    print('Paste your ' + blue('Twitter API Consumer Key') + ': ', end='')
+    consumer_key = input()
+    print('Paste your ' + blue('Twitter API Consumer Secret Key') + ': ', end='')
+    consumer_secret = input()
+    print('Paste your ' + blue('Mashape API Key' + ': '), end='')
+    mashape_key = input()
     config['API'] = {'ConsumerKey':consumer_key, 'ConsumerSecret':consumer_secret, 'MashapeKey':mashape_key}
 
     allowlist_path = pathjoin(input('Type in the full path of the folder you want to save your allowlist: '), 'AllowList.pickle')
@@ -47,5 +50,6 @@ def user_config(config_complete_path, auth):
     return access_token, access_secret
 
 def confirm():
-    result = input(green('(Y)es') + '/' + red('(N)o') + ': ').upper().startswith('Y')
+    print(green('(Y)es') + '/' + red('(N)o') + ': ', end='')
+    result = input().upper().startswith('Y')
     return result

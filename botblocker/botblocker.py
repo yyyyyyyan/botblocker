@@ -57,14 +57,15 @@ def identify_bots(api, bom, followers, level, block=Block(False, False, False)):
     bots = []
     non_bots = []
     try:
-        for id_number, result in bom.check_accounts_in(followers):
+        for i, account in enumerate(bom.check_accounts_in(followers), 1):
+            id_number, result = account
             if result.get('error'):
                 screen_name, score = calculate_bot_score(api, id_number)
             else:
                 screen_name = result['user']['screen_name']
                 score = result['display_scores']['universal']
             color = colors.get(floor(score), white)
-            print(color('{} - {}'.format(screen_name, score)))
+            print(str(i) + color(' {} - {}'.format(screen_name, score)))
             if score >= block_levels.get(level, 3):
                 bots.append(screen_name)
                 if block.block_now:

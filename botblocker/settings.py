@@ -35,8 +35,11 @@ def user_config(config_complete_path, auth):
     except tweepy.TweepError:
         error(config_complete_path, 'Failed to get request token.')
 
-    print('Access this link to authorize usage of your Twitter account: ' + bold(lightpurple(auth_url)) + ' (URL automatically copied to clipboard)')
-    pyperclip.copy(auth_url)
+    msg_auth_link = 'Access this link to authorize usage of your Twitter account: ' + bold(lightpurple(auth_url))
+    if(pyperclip.is_available()):
+        msg_auth_link += ' (URL automatically copied to clipboard)'
+        pyperclip.copy(auth_url)
+    print(msg_auth_link)
     verifier = input('Type in the verifier code available on the authorization link: ')
 
     try:
